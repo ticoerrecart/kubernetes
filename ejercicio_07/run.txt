@@ -1,0 +1,16 @@
+1-kubectl create namespace arba2 (ya teniamos arba en uso, y use nombres que podian colisionar)
+2-kubectl apply -f 1-configMap.yaml -n arba2
+3-kubectl apply -f 2-deploymnent.yaml -n arba2
+4-verificamos los pods:
+>kubectl get pod -n arba2
+NAME                       READY   STATUS    RESTARTS   AGE
+pingapp-79c76bddfc-4zs67   1/1     Running   0          13s
+pingapp-79c76bddfc-9flqp   1/1     Running   0          13s
+pingapp-79c76bddfc-kbgbw   1/1     Running   0          13s
+5-verificamos en algun pod las variables de entorno:
+ >kubectl -n arba2 exec -it pingapp-79c76bddfc-4zs67 -- /bin/bash
+ appuser@pingapp-79c76bddfc-4zs67:/apps/pingapp$ env
+...
+CONFIG_LOCATION=/mydata/config.json
+...
+DEVELOPER=rodolfo.errecart

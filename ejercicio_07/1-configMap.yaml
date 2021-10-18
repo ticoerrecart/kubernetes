@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-pingapp
+data:
+  # property-like keys; each key maps to a simple value
+  CONFIG_LOCATION: "/mydata/config.json"
+  DEVELOPER: "rodolfo.errecart"
+

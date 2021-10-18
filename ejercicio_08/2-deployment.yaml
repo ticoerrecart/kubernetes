@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: te-bot
+  labels:
+    app: te-bot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: te-bot
+  template:
+    metadata:
+      labels:
+        app: te-bot
+    spec:
+      containers:
+      - name: te-bot
+        image: nicopaez/telegrambot:0.0.7
+        ports:
+        - containerPort: 4567
+        envFrom:
+          - configMapRef:
+              name: config-map-tebot

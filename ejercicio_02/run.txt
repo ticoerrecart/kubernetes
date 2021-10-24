@@ -1,0 +1,4 @@
+docker pull nicopaez/pingapp:3.0.0
+docker image tag nicopaez/pingapp:3.0.0 tico1979/pingapp:3.0.0
+docker image push tico1979/pingapp:3.0.0
+https://hub.docker.com/repository/docker/tico1979/pingapp
